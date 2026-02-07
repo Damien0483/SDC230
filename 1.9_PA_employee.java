@@ -1,11 +1,11 @@
-/**
- * Your Name
- * Date of development: February 2026
- * Assignment: SDC230 Performance Assessment - Classes
+/*****************************************************************************
+ * Your Name: Damien Harmon
+ * Date of development: February 7, 2026
+ * Assignment: SDC230_Performance_Assessment_1.9
  * Description: This class models an Employee with first name, last name,
  *              and monthly salary. Includes constructor, getters, setters,
  *              and salary validation.
- */
+ */***************************************************************************
 
 public class Employee {
 
@@ -23,7 +23,7 @@ public class Employee {
         if (monthlySalary >= 1000) {
             this.monthlySalary = monthlySalary;
         } else {
-            this.monthlySalary = 0; // or leave at default 0.0
+            this.monthlySalary = 0;
         }
     }
 
@@ -53,6 +53,6 @@ public class Employee {
         if (monthlySalary >= 1000) {
             this.monthlySalary = monthlySalary;
         }
-        // If invalid, ignore the update (per requirements)
+        // If invalid, ignore the update
     }
 }
