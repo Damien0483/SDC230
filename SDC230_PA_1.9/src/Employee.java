@@ -5,7 +5,7 @@
  * Description: This class models an Employee with first name, last name,
  *              and monthly salary. Includes constructor, getters, setters,
  *              and salary validation.
- */***************************************************************************
+ ****************************************************************************/
 
 public class Employee {
 
