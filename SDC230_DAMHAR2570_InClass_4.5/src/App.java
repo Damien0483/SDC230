@@ -1,0 +1,78 @@
+/**********************************************************************
+ * Name: Damien Harmon
+ * Date: February 20, 2026
+ * Assignment: SDC230 In-Class Assignment: Exceptions Practice
+ *Description: SDC230 Object-Oriented Programming using Java
+ ************************************************************************/
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) {
+
+        System.out.println("DAMHAR2570 - Week 4 In-Class Assignment: Exceptions & Finally\n");
+
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> validNumbers = new ArrayList<>();
+
+        int count = 0;
+        int sum = 0;
+
+        int userInput = 0;
+
+        while (true) {
+
+            try {
+                System.out.print("Enter an integer between 1 and 100 (-999 to quit): ");
+                userInput = scanner.nextInt();
+
+                // Quit condition
+                if (userInput == -999) {
+                    break;
+                }
+
+                // User-generated exception
+                if (userInput < 1 || userInput > 100) {
+                    throw new NumberBetween1and100Exception("Number must be between 1 and 100.");
+                }
+
+                // Valid input
+                validNumbers.add(userInput);
+                count++;
+                sum += userInput;
+
+                System.out.println("Accepted: " + userInput + "\n");
+
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter an integer.\n");
+                scanner.nextLine(); // clear bad input
+                continue;
+
+            } catch (NumberBetween1and100Exception e) {
+                System.out.println(e.getMessage() + "\n");
+                continue;
+
+            } finally {
+                System.out.println("Input attempt complete.\n");
+            }
+        }
+
+        // End of loop — final summary
+        System.out.println("\n=== FINAL RESULTS ===");
+
+        if (count == 0) {
+            System.out.println("No valid numbers were entered. Average cannot be calculated.");
+        } else {
+            System.out.println("Valid numbers entered: " + validNumbers);
+            System.out.println("Count: " + count);
+            System.out.println("Sum: " + sum);
+
+            double average = (double) sum / count;
+            System.out.printf("Average: %.2f%n", average);
+        }
+
+        scanner.close();
+    }
+}
