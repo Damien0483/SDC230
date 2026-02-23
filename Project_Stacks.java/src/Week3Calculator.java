@@ -17,6 +17,7 @@ public class Week3Calculator {
 
         System.out.println("==============================================");
         System.out.println("      Welcome to Damien's Week 3 Calculator");
+        System.out.println("              Postfix Integration");
         System.out.println("  Where Math Happens Whether You Like It or Not");
         System.out.println("==============================================");
 
